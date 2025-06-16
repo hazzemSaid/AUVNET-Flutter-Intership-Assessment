@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/constants/Appthemes.dart';
 import 'package:ecommerce/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
+      themeMode: ThemeMode.system, // Follows system theme
       home: Scaffold(
         appBar: AppBar(title: const Text('Flutter Demo Home Page')),
         body: Center(
