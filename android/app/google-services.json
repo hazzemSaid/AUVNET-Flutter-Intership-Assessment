@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "486602688494",
+    "project_id": "auvnet-flutter",
+    "storage_bucket": "auvnet-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486602688494:android:910bad03dce4fb9129b0ff",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQP51h-qsBBWb26XG_m5p34oHCSO79D2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
