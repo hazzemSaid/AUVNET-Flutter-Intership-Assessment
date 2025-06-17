@@ -50,6 +50,8 @@ dev_dependencies:
   flutter_bloc: ^9.1.1
   hive: ^2.2.3
   firebase_auth: ^5.6.0
+  go_router: ^15.2.0
+  equatable: ^2.0.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -91,6 +93,11 @@ flutter:
         - asset: assets/fonts/static/DMSans-BoldItalic.ttf
           style: italic
           weight: 700
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik-VariableFont_wght.ttf
+        - asset: assets/fonts/Rubik-Italic-VariableFont_wght.ttf
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

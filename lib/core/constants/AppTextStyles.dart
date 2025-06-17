@@ -72,7 +72,7 @@ class AppTextStyles {
 
   static const TextStyle buttonLarge = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: FontWeight.w600,
     height: 1.2,
     letterSpacing: 0.1,
