@@ -1,18 +1,65 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
+import 'package:ecommerce/features/auth/domain/repositories/auth_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(AuthInitial());
+  final AuthRepository authRepository;
+  AuthBloc(this.authRepository) : super(AuthInitial()) {
+    on<AppStarted>(_onAppStarted);
+    on<LoggedIn>(_onLoggedIn);
+    on<LoggedOut>(_onLoggedOut);
+    on<LoginRequested>(_onLoginRequested);
+  }
+  void _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+    try {
+      final user = await authRepository.getCurrentUser();
+      if (user != null) {
+        emit(AuthAuthenticated(user.uid));
+      } else {
+        emit(AuthUnauthenticated());
+      }
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
+  }
 
-  @override
-  Stream<AuthState> mapEventToState(
-    AuthEvent event,
-  ) async* {
-    // TODO: implement mapEventToState
+  void _onLoggedIn(LoggedIn event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+    try {
+      final user = await authRepository.login(
+        email: event.uid,
+        password: event.uid,
+      );
+      emit(AuthAuthenticated(user.uid));
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
+  }
+
+  void _onLoggedOut(LoggedOut event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+    try {
+      await authRepository.logout();
+      emit(AuthUnauthenticated());
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
+  }
+
+  void _onLoginRequested(LoginRequested event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
+    try {
+      final user = await authRepository.login(
+        email: event.email,
+        password: event.password,
+      );
+      emit(AuthAuthenticated(user.uid));
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
   }
 }
