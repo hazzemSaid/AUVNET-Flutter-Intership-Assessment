@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  // Static constants for better performance
   static const List<String> shortcutsText = [
     "Past orders",
     "Super Saver",
