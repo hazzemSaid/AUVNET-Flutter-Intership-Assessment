@@ -95,13 +95,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           builder: (context) =>
                               const Center(child: CircularProgressIndicator()),
                         );
-                      } else if (state is AuthAuthenticated) {
-                        Navigator.of(context).pop();
                       } else if (state is AuthError) {
                         Navigator.of(context).pop();
                         ScaffoldMessenger.of(
                           context,
                         ).showSnackBar(SnackBar(content: Text(state.message)));
+                      } else {
+                        Navigator.of(context).pop();
                       }
                     },
                     child: ElevatedButton(

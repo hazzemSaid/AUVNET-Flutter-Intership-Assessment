@@ -1,3 +1,4 @@
+import 'package:ecommerce/config/routes/GoRouterRefreshStream.dart';
 import 'package:ecommerce/features/auth/presentation/view/screens/login_screen.dart';
 import 'package:ecommerce/features/auth/presentation/view/screens/signup_screen.dart';
 import 'package:ecommerce/features/auth/presentation/viewmodel/bloc/Auth_bloc/auth_bloc.dart';
@@ -10,21 +11,21 @@ class RouteManager {
   static GoRouter createRouter(AuthBloc authBloc) {
     return GoRouter(
       initialLocation: '/navbar',
-      // refreshListenable: GoRouterRefreshStream(authBloc.stream),
-      // redirect: (context, state) {
-      //   final authState = authBloc.state;
-      //   final isLoggedIn = authState is AuthAuthenticated;
+      refreshListenable: GoRouterRefreshStream(authBloc.stream),
+      redirect: (context, state) {
+        final authState = authBloc.state;
+        final isLoggedIn = authState is AuthAuthenticated;
 
-      //   final isLoggingIn =
-      //       state.uri.path == '/login' ||
-      //       state.uri.path == '/signup' ||
-      //       state.uri.path == '/onbording';
+        final isLoggingIn =
+            state.uri.path == '/login' ||
+            state.uri.path == '/signup' ||
+            state.uri.path == '/onbording';
 
-      //   if (isLoggedIn && isLoggingIn) return '/navbar';
-      //   if (!isLoggedIn && state.uri.path == '/navbar') return '/login';
+        if (isLoggedIn && isLoggingIn) return '/navbar';
+        if (!isLoggedIn && state.uri.path == '/navbar') return '/';
 
-      //   return null;
-      // },
+        return null;
+      },
       routes: [
         GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
         GoRoute(
