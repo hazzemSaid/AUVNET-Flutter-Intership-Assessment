@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce/features/home/domain/entities/services.dart';
 import 'package:ecommerce/features/home/domain/usecases/get_services.dart';
+import 'package:ecommerce/features/home/presentation/bloc/services_bloc/services_state.dart';
 import 'package:meta/meta.dart';
 
 part 'services_event.dart';
-part 'services_state.dart';
 
 class ServicesBloc extends Bloc<ServicesEvent, ServicesState> {
   final GetServices getServices;

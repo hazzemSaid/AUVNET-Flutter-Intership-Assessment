@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:ecommerce/core/errors/autherror.dart';
 import 'package:ecommerce/features/auth/domain/repositories/auth_repository.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_event.dart';
@@ -23,6 +25,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else {
         emit(AuthUnauthenticated());
       }
+    } on FirebaseAuthException catch (e) {
+      final error = AuthErrorexp.fromCode(e.code);
+      emit(AuthError(error.message));
     } catch (e) {
       emit(AuthError(e.toString()));
     }
@@ -36,6 +41,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         password: event.uid,
       );
       emit(AuthAuthenticated(user.uid));
+    } on FirebaseAuthException catch (e) {
+      final error = AuthErrorexp.fromCode(e.code);
+      emit(AuthError(error.message));
     } catch (e) {
       emit(AuthError(e.toString()));
     }
@@ -59,6 +67,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         password: event.password,
       );
       emit(AuthAuthenticated(user.uid));
+    } on FirebaseAuthException catch (e) {
+      final error = AuthErrorexp.fromCode(e.code);
+      emit(AuthError(error.message));
     } catch (e) {
       emit(AuthError(e.toString()));
     }
@@ -75,6 +86,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         password: event.password,
       );
       emit(AuthAuthenticated(user.uid));
+    } on FirebaseAuthException catch (e) {
+      final error = AuthErrorexp.fromCode(e.code);
+      emit(AuthError(error.message));
     } catch (e) {
       emit(AuthError(e.toString()));
     }

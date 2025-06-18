@@ -1,7 +1,12 @@
-part of 'services_bloc.dart';
+import 'package:ecommerce/features/home/domain/entities/services.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class ServicesState {}
+abstract class ServicesState extends Equatable {
+  const ServicesState();
+
+  @override
+  List<Object?> get props => [];
+}
 
 class ServicesInitial extends ServicesState {}
 
@@ -10,11 +15,25 @@ class ServicesLoading extends ServicesState {}
 class ServicesLoaded extends ServicesState {
   final List<Services> services;
 
-  ServicesLoaded(this.services);
+  const ServicesLoaded(this.services);
+
+  @override
+  List<Object?> get props => [services];
+
+  ServicesLoaded copyWith({List<Services>? services}) {
+    return ServicesLoaded(services ?? this.services);
+  }
 }
 
 class ServicesError extends ServicesState {
   final String message;
 
-  ServicesError(this.message);
+  const ServicesError(this.message);
+
+  @override
+  List<Object?> get props => [message];
+
+  ServicesError copyWith({String? message}) {
+    return ServicesError(message ?? this.message);
+  }
 }
