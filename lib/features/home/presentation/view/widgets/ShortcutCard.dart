@@ -34,11 +34,12 @@ class ShortcutCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "assets/images/Shortcuts$imageIndex.png",
-                width: 40,
-                height: 40,
+                "assets/images/Shortcuts${imageIndex}.png",
+                width: 50,
+                height: 50,
                 fit: BoxFit.contain,
               ),
+
               const SizedBox(height: 4),
               Text(
                 title,

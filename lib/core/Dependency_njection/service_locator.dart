@@ -4,11 +4,14 @@ import 'package:ecommerce/features/auth/data/datasources/auth_remote_data_source
 import 'package:ecommerce/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:ecommerce/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ecommerce/features/auth/presentation/viewmodel/bloc/Auth_bloc/auth_bloc.dart';
+import 'package:ecommerce/features/home/data/datasources/home_local_data_source.dart';
 import 'package:ecommerce/features/home/data/datasources/home_remote_data_source.dart';
 import 'package:ecommerce/features/home/data/repository/home_repository_impl.dart';
 import 'package:ecommerce/features/home/domain/repositories/home_repository.dart';
 import 'package:ecommerce/features/home/domain/usecases/get_restaurants.dart';
+import 'package:ecommerce/features/home/domain/usecases/get_services.dart';
 import 'package:ecommerce/features/home/presentation/bloc/home_bloc_bloc.dart';
+import 'package:ecommerce/features/home/presentation/bloc/services_bloc/services_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
@@ -32,11 +35,19 @@ Future<void> initServiceLocator(Box authBox) async {
     ),
   );
   sl.registerFactory(() => AuthBloc(sl()));
+  sl.registerFactory(() => ServicesBloc(sl()));
 
   sl.registerLazySingleton<HomeRemoteDataSource>(
     () => HomeRemoteDataSourceFirebaseImpl(sl()),
   );
-  sl.registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(sl()));
+  sl.registerLazySingleton<HomeLocalDataSource>(
+    () => HomeLocalDataSourceHiveImpl(Hive.box('homeBox')),
+  );
+  sl.registerLazySingleton<HomeRepository>(
+    () => HomeRepositoryImpl(sl(), sl()),
+  );
+
   sl.registerLazySingleton(() => Getrestaurants(sl()));
   sl.registerFactory(() => HomeBloc(sl()));
+  sl.registerLazySingleton(() => GetServices(sl()));
 }

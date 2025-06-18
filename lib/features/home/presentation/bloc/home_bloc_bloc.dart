@@ -8,7 +8,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc(this.getProducts) : super(HomeInitial()) {
     on<LoadProducts>((event, emit) async {
-      print('Loading products...');
       emit(HomeLoading());
       try {
         final restaurants = await getProducts();

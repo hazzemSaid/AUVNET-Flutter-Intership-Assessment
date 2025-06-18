@@ -14,6 +14,8 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
   var box = await Hive.openBox('authBox');
+  await Hive.openBox('homeBox');
+
   await initServiceLocator(box);
   Bloc.observer = Observer();
 

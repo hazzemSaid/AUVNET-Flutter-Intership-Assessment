@@ -1,19 +1,19 @@
 import 'package:ecommerce/core/constants/AppTextStyles.dart';
 import 'package:ecommerce/features/home/presentation/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 class PromoCodeSection extends StatelessWidget {
   const PromoCodeSection({super.key});
-
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      margin: const EdgeInsets.all(10),
-      width: double.infinity,
+      height: 110,
+      width: screenWidth - 40,
+      margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       padding: const EdgeInsets.only(
         left: HomeScreen.horizontalPadding,
-        bottom: 20.0,
         right: HomeScreen.horizontalPadding,
       ),
       decoration: BoxDecoration(
@@ -32,40 +32,21 @@ class PromoCodeSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: 150,
-            height: 100,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                const Image(
-                  image: Svg('assets/images/SecurityVault.svg'),
-                  width: 150,
-                  height: 100,
-                  fit: BoxFit.cover,
-                ),
-                Positioned(
-                  right: 14,
-                  left: 1,
-                  bottom: 13,
-                  child: Image.asset(
-                    'assets/images/N-removebg-preview.png',
-                    fit: BoxFit.contain,
-                    width: 50,
-                    height: 50,
-                    alignment: Alignment.bottomCenter,
-                  ),
-                ),
-              ],
+            width: 90,
+            child: Image.asset(
+              "assets/images/Shortcuts2.png",
+              width: 90,
+              fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(width: 16.0),
+          const SizedBox(width: 12.0),
           const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Got a code!", style: AppTextStyles.heading4),
-                SizedBox(height: 8.0),
+                SizedBox(height: 6.0),
                 Text(
                   "Add your code and save on your order",
                   style: TextStyle(fontSize: 14.0, color: Colors.grey),

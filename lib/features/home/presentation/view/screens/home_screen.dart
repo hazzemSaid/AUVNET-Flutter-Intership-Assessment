@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/Dependency_njection/service_locator.dart';
 import 'package:ecommerce/features/home/presentation/bloc/home_bloc_bloc.dart';
 import 'package:ecommerce/features/home/presentation/bloc/home_bloc_event.dart';
+import 'package:ecommerce/features/home/presentation/bloc/services_bloc/services_bloc.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/HeaderSection.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/ImageSliderWithListView.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/PromoCodeSection.dart';
@@ -29,8 +30,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<HomeBloc>(
-      create: (context) => sl<HomeBloc>()..add(LoadProducts()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => sl<HomeBloc>()..add(LoadProducts())),
+        BlocProvider(
+          create: (context) => sl<ServicesBloc>()..add(ServicesLoad()),
+        ),
+      ],
       child: Scaffold(
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),

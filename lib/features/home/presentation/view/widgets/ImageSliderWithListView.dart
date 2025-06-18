@@ -16,6 +16,9 @@ class _ImageSliderWithListViewState extends State<ImageSliderWithListView> {
     'assets/images/offers.png',
     'assets/images/offers.png',
     'assets/images/offers.png',
+    'assets/images/offers.png',
+    'assets/images/offers.png',
+    'assets/images/offers.png',
   ];
 
   @override

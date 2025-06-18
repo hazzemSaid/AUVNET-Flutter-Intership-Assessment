@@ -22,7 +22,7 @@ class ShortcutsSection extends StatelessWidget {
         ),
         const SizedBox(height: 10.0),
         SizedBox(
-          height: 120,
+          height: 130,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(
