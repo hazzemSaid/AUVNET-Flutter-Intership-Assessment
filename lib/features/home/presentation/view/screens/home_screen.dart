@@ -1,3 +1,6 @@
+import 'package:ecommerce/core/Dependency_njection/service_locator.dart';
+import 'package:ecommerce/features/home/presentation/bloc/home_bloc_bloc.dart';
+import 'package:ecommerce/features/home/presentation/bloc/home_bloc_event.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/HeaderSection.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/ImageSliderWithListView.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/PromoCodeSection.dart';
@@ -5,6 +8,7 @@ import 'package:ecommerce/features/home/presentation/view/widgets/RestaurantsSec
 import 'package:ecommerce/features/home/presentation/view/widgets/ServicesSection.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/ShortcutsSection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,22 +29,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            HeaderSection(),
-            ServicesSection(),
-            PromoCodeSection(),
-            SizedBox(height: 20.0),
-            ShortcutsSection(),
-            SizedBox(height: 20.0),
-            ImageSliderWithListView(),
-            SizedBox(height: 20.0),
-            RestaurantsSection(),
-          ],
+    return BlocProvider<HomeBloc>(
+      create: (context) => sl<HomeBloc>()..add(LoadProducts()),
+      child: Scaffold(
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              HeaderSection(),
+              ServicesSection(),
+              PromoCodeSection(),
+              SizedBox(height: 20.0),
+              ShortcutsSection(),
+              SizedBox(height: 20.0),
+              ImageSliderWithListView(),
+              SizedBox(height: 20.0),
+              RestaurantsSection(),
+            ],
+          ),
         ),
       ),
     );

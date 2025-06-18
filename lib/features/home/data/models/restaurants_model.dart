@@ -5,7 +5,7 @@ class RestaurantsModel extends Restaurants {
   RestaurantsModel({
     required super.id,
     required super.name,
-    required super.imageurl,
+    required super.image,
     required super.time,
   });
 
@@ -14,7 +14,7 @@ class RestaurantsModel extends Restaurants {
     return RestaurantsModel(
       id: doc.id,
       name: data['name'] ?? '',
-      imageurl: data['imageurl'] ?? '',
+      image: data['image'] ?? '',
       time: data['time'] ?? '',
     );
   }
@@ -23,25 +23,25 @@ class RestaurantsModel extends Restaurants {
     return RestaurantsModel(
       id: json['id'] ?? '',
       name: json['name'] ?? '',
-      imageurl: json['imageurl'] ?? '',
+      image: json['image'] ?? '',
       time: json['time'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {'id': id, 'name': name, 'imageurl': imageurl, 'time': time};
+    return {'id': id, 'name': name, 'image': image, 'time': time};
   }
 
   RestaurantsModel copyWith({
     String? id,
     String? name,
-    String? imageurl,
+    String? image,
     String? time,
   }) {
     return RestaurantsModel(
       id: id ?? this.id,
       name: name ?? this.name,
-      imageurl: imageurl ?? this.imageurl,
+      image: image ?? this.image,
       time: time ?? this.time,
     );
   }
