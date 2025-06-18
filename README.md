@@ -137,7 +137,8 @@ dependencies:
   firebase_storage: ^12.4.7
 ```
 
-## 🤝 Contributing
+## 🤝 video 
+https://github.com/user-attachments/assets/96f6c487-be5f-474c-a509-233f5db6c101
 
 Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/hazzemSaid/AUVNET-Flutter-Intership-Assessment/issues).
 
