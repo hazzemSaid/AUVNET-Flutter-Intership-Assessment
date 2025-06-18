@@ -1,5 +1,5 @@
 import 'package:ecommerce/config/observing/blocobserving.dart';
-import 'package:ecommerce/config/routes/routes.dart';
+import 'package:ecommerce/config/routes/routers.dart';
 import 'package:ecommerce/core/Dependency_njection/service_locator.dart';
 import 'package:ecommerce/core/constants/Appthemes.dart';
 import 'package:ecommerce/features/auth/presentation/viewmodel/bloc/Auth_bloc/auth_bloc.dart';
