@@ -22,17 +22,27 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AuthBloc>(
-      create: (_) => sl<AuthBloc>(),
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: 'E-commerce App',
-        theme: AppThemes.lightTheme,
-        darkTheme: AppThemes.darkTheme,
-        themeMode: ThemeMode.system,
-        routerConfig: RouteManager.router,
+      create: (_) {
+        final authBloc = sl<AuthBloc>();
+        authBloc.add(AppStarted());
+        return authBloc;
+      },
+      child: Builder(
+        builder: (context) {
+          final authBloc = context.read<AuthBloc>();
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: 'E-commerce App',
+            theme: AppThemes.lightTheme,
+            darkTheme: AppThemes.darkTheme,
+            themeMode: ThemeMode.system,
+            routerConfig: RouteManager.createRouter(authBloc),
+          );
+        },
       ),
     );
   }

@@ -97,7 +97,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       } else if (state is AuthAuthenticated) {
                         Navigator.of(context).pop();
-                        GoRouter.of(context).go("/home");
                       } else if (state is AuthError) {
                         Navigator.of(context).pop();
                         ScaffoldMessenger.of(

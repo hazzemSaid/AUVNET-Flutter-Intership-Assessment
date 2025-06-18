@@ -110,9 +110,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               SnackBar(content: Text(state.message)),
                             );
                           }
-                          if (state is AuthAuthenticated) {
-                            GoRouter.of(context).go("/home");
-                          }
+
                           if (state is AuthLoading) {
                             showDialog(
                               context: context,
