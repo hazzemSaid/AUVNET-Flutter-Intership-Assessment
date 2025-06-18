@@ -147,7 +147,6 @@ class AppTextStyles {
     decoration: TextDecoration.lineThrough,
   );
 
-  // Input Field Styles
   static const TextStyle inputText = TextStyle(
     fontFamily: fontFamily,
     fontSize: 16,

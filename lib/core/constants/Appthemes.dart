@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AppThemes {
-  // Light Theme Colors
   static const Color _lightPrimary = Color(0xFF2196F3);
   static const Color _lightPrimaryVariant = Color(0xFF1976D2);
   static const Color _lightSecondary = Color(0xFFFF5722);
@@ -16,7 +15,6 @@ class AppThemes {
   static const Color _lightOnBackground = Color(0xFF000000);
   static const Color _lightOnError = Color(0xFFFFFFFF);
 
-  // Dark Theme Colors
   static const Color _darkPrimary = Color(0xFF64B5F6);
   static const Color _darkPrimaryVariant = Color(0xFF42A5F5);
   static const Color _darkSecondary = Color(0xFFFF8A65);
@@ -30,7 +28,6 @@ class AppThemes {
   static const Color _darkOnBackground = Color(0xFFFFFFFF);
   static const Color _darkOnError = Color(0xFF000000);
 
-  // Additional Colors
   static const Color success = Color(0xFF4CAF50);
   static const Color warning = Color(0xFFFF9800);
   static const Color info = Color(0xFF2196F3);
@@ -38,13 +35,11 @@ class AppThemes {
   static const Color mediumGrey = Color(0xFF9E9E9E);
   static const Color darkGrey = Color(0xFF424242);
 
-  // Light Theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     fontFamily: 'DMSans',
 
-    // Color Scheme
     colorScheme: const ColorScheme.light(
       primary: _lightPrimary,
       primaryContainer: _lightPrimaryVariant,
@@ -60,7 +55,6 @@ class AppThemes {
       onError: _lightOnError,
     ),
 
-    // App Bar Theme
     appBarTheme: const AppBarTheme(
       backgroundColor: _lightSurface,
       foregroundColor: _lightOnSurface,
@@ -76,7 +70,6 @@ class AppThemes {
       systemOverlayStyle: SystemUiOverlayStyle.dark,
     ),
 
-    // Bottom Navigation Bar Theme
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: _lightSurface,
       selectedItemColor: _lightPrimary,
@@ -95,7 +88,6 @@ class AppThemes {
       ),
     ),
 
-    // Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: _lightPrimary,
@@ -111,7 +103,6 @@ class AppThemes {
       ),
     ),
 
-    // Outlined Button Theme
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: _lightPrimary,
@@ -126,7 +117,6 @@ class AppThemes {
       ),
     ),
 
-    // Text Button Theme
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: _lightPrimary,
@@ -139,7 +129,6 @@ class AppThemes {
       ),
     ),
 
-    // Card Theme
     cardTheme: CardThemeData(
       color: _lightSurface,
       elevation: 2,
@@ -148,7 +137,6 @@ class AppThemes {
       margin: const EdgeInsets.all(8),
     ),
 
-    // Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: _lightSurface,
@@ -183,7 +171,6 @@ class AppThemes {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     ),
 
-    // Chip Theme
     chipTheme: const ChipThemeData(
       backgroundColor: lightGrey,
       selectedColor: _lightPrimary,
@@ -195,7 +182,6 @@ class AppThemes {
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
     ),
 
-    // Dialog Theme
     dialogTheme: DialogThemeData(
       backgroundColor: _lightSurface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -213,17 +199,14 @@ class AppThemes {
       ),
     ),
 
-    // Divider Theme
     dividerTheme: const DividerThemeData(
       color: lightGrey,
       thickness: 1,
       space: 1,
     ),
 
-    // Icon Theme
     iconTheme: const IconThemeData(color: _lightOnSurface, size: 24),
 
-    // Text Theme
     textTheme: const TextTheme(
       displayLarge: TextStyle(
         fontFamily: 'DMSans',
@@ -318,13 +301,11 @@ class AppThemes {
     ),
   );
 
-  // Dark Theme
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     fontFamily: 'DMSans',
 
-    // Color Scheme
     colorScheme: const ColorScheme.dark(
       primary: _darkPrimary,
       primaryContainer: _darkPrimaryVariant,
@@ -340,7 +321,6 @@ class AppThemes {
       onError: _darkOnError,
     ),
 
-    // App Bar Theme
     appBarTheme: const AppBarTheme(
       backgroundColor: _darkSurface,
       foregroundColor: _darkOnSurface,
@@ -356,7 +336,6 @@ class AppThemes {
       systemOverlayStyle: SystemUiOverlayStyle.light,
     ),
 
-    // Bottom Navigation Bar Theme
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: _darkSurface,
       selectedItemColor: _darkPrimary,
@@ -375,7 +354,6 @@ class AppThemes {
       ),
     ),
 
-    // Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: _darkPrimary,
@@ -391,7 +369,6 @@ class AppThemes {
       ),
     ),
 
-    // Outlined Button Theme
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: _darkPrimary,
@@ -406,7 +383,6 @@ class AppThemes {
       ),
     ),
 
-    // Text Button Theme
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: _darkPrimary,
@@ -419,7 +395,6 @@ class AppThemes {
       ),
     ),
 
-    // Card Theme
     cardTheme: CardThemeData(
       color: _darkSurface,
       elevation: 2,
@@ -428,7 +403,6 @@ class AppThemes {
       margin: const EdgeInsets.all(8),
     ),
 
-    // Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: _darkSurface,
@@ -463,7 +437,6 @@ class AppThemes {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     ),
 
-    // Chip Theme
     chipTheme: const ChipThemeData(
       backgroundColor: darkGrey,
       selectedColor: _darkPrimary,
@@ -476,7 +449,6 @@ class AppThemes {
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
     ),
 
-    // Dialog Theme
     dialogTheme: DialogThemeData(
       backgroundColor: _darkSurface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -494,17 +466,14 @@ class AppThemes {
       ),
     ),
 
-    // Divider Theme
     dividerTheme: const DividerThemeData(
       color: darkGrey,
       thickness: 1,
       space: 1,
     ),
 
-    // Icon Theme
     iconTheme: const IconThemeData(color: _darkOnSurface, size: 24),
 
-    // Text Theme
     textTheme: const TextTheme(
       displayLarge: TextStyle(
         fontFamily: 'DMSans',

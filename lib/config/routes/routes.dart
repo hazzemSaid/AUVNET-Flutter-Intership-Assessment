@@ -13,7 +13,7 @@ class RouteManager {
         builder: (context, state) => OnboardingScreen(),
       ),
       GoRoute(path: '/login', builder: (context, state) => LoginScreen()),
-      GoRoute(path: '/sginup', builder: (context, state) => SignupScreen()),
+      GoRoute(path: '/signup', builder: (context, state) => SignupScreen()),
     ],
   );
 }

@@ -12,6 +12,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<LoggedIn>(_onLoggedIn);
     on<LoggedOut>(_onLoggedOut);
     on<LoginRequested>(_onLoginRequested);
+    on<SignupRequested>(_onSignUpRequested);
   }
   void _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
@@ -54,6 +55,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(AuthLoading());
     try {
       final user = await authRepository.login(
+        email: event.email,
+        password: event.password,
+      );
+      emit(AuthAuthenticated(user.uid));
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
+  }
+
+  void _onSignUpRequested(
+    SignupRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(AuthLoading());
+    try {
+      final user = await authRepository.register(
         email: event.email,
         password: event.password,
       );
